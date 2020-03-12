@@ -3,6 +3,26 @@ a {
      color: black;
  }
 
+h1 {
+    font-size: 50px;
+}
+
 body {
+    text-align: center;
+    align-items: center;
     background-color: lightsteelblue;
+}
+
+.form-div {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 40vw;
+}
+
+form > input {
+    margin: 10px;
 }
