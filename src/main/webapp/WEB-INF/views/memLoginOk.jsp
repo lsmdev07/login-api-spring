@@ -3,7 +3,7 @@
 <html>
 <head>
 	<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" />
-	<title>Home</title>
+	<title>login-api</title>
 </head>
 <body>
 	<h1> memLoginOk </h1>

@@ -87,7 +87,8 @@ public class MemberDao implements IMemberDao {
 	@Override
 	public Member memberSelect(String memId, String memPw) {
 		Member member = dbMap.get(memId);
-		System.out.println(member);
+		if(member!=null)
+			System.out.println(member);
 		return member;
 	}
 
