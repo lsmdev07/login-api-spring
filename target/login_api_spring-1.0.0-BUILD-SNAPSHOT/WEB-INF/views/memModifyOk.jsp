@@ -1,3 +1,4 @@
+<jsp:useBean id="memBef" scope="request" type="com.bs.login_api_spring.member.Member"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
