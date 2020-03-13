@@ -5,6 +5,7 @@ import com.bs.login_api_spring.member.dao.MemberDao;
 import com.bs.login_api_spring.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,6 +63,21 @@ public class MemberController {
 
     }
 
+    @RequestMapping(value="/memModify_login", method=RequestMethod.POST)
+    public ModelAndView memModifyLogin(Member member) {
+        if ((service.memberSearch(member) == true)&&(member.getMemPw().equals(dao.memberSelect(member).getMemPw()))){
+            Member mem = dao.memberSelect(member);
+            ModelAndView mav = new ModelAndView();
+            mav.addObject("member", mem);
+            mav.setViewName("memModifyForm");
+            return mav;
+        }
+        else{
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("memLoginFail");
+            return mav;
+        }
+    }
     @RequestMapping(value = "/memModify", method = RequestMethod.POST)
     public ModelAndView memModify(Member member) {
         Member[] members = service.memberModify(member);
