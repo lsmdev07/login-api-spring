@@ -1,13 +1,16 @@
 <jsp:useBean id="memBef" scope="request" type="com.bs.login_api_spring.member.Member"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=euc-kr" language="java" %>
+<% request.setCharacterEncoding("euc-kr"); %>
+<% response.setContentType("text/html; charset=euc-kr"); %>
 <html>
 <head>
+    <meta charset="euc-kr">
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet"/>
     <title>login-api</title>
 </head>
 <body>
-<h1>memModifyOk</h1>
+<h1>정보가 수정되었습니다.</h1>
 <h3>memBef</h3>
 ID : ${memBef.memId} <br/>
 PW : ${memBef.memPw} <br/>

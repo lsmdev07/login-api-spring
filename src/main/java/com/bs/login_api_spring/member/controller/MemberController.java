@@ -50,12 +50,15 @@ public class MemberController {
 
     @RequestMapping(value = "/memRemove", method = RequestMethod.POST)
     public String memRemove(@ModelAttribute("mem") Member member) {
-        if (service.memberSearch(member) == true && member.getMemPw() == dao.memberSelect(member).getMemPw()) {
+        if (service.memberSearch(member) == true && (member.getMemPw() == dao.memberSelect(member).getMemPw())) {
+            System.out.println(member.getMemPw());
+            System.out.println(dao.memberSelect(member).getMemPw());
             service.memberRemove(member);
             return "memRemoveOk";
         } else {
             return "memRemoveFail";
         }
+
     }
 
     @RequestMapping(value = "/memModify", method = RequestMethod.POST)

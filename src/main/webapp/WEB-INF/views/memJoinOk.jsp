@@ -1,12 +1,15 @@
+<% request.setCharacterEncoding("euc-kr"); %>
+<% response.setContentType("text/html; charset=euc-kr"); %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html;charset=euc-kr" language="java" %>
 <html>
 <head>
+    <meta charset="euc-kr">
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet"/>
     <title>login-api</title>
 </head>
 <body>
-<h1> memJoinOk </h1>
+<h1> 회원가입이 완료되었습니다. </h1>
 <div class="form-div">
     <div class="join-result">
         ID : ${member.memId} <br />
