@@ -1,34 +1,78 @@
 package com.bs.login_api_spring.member;
 
+import java.util.List;
+
 public class Member {
-	private String memId;
-	private String memPw;
-	private String memMail;
-	private MemPhone memPhone;
-	
-	public String getMemId() {
-		return memId;
-	}
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-	public String getMemPw() {
-		return memPw;
-	}
-	public void setMemPw(String memPw) {
-		this.memPw = memPw;
-	}
-	public String getMemMail() {
-		return memMail;
-	}
-	public void setMemMail(String memMail) {
-		this.memMail = memMail;
-	}
-	public MemPhone getMemPhone() {
-		return memPhone;
-	}
-	public void setMemPhone(MemPhone memPhone) {
-		this.memPhone = memPhone;
-	}
-	
+    private String memId;
+    private String memPw;
+    private String memMail;
+    private List<MemPhone> memPhones;
+    private int memAge;
+	private boolean memAdult;
+	private String memGender;
+
+
+    public int getMemAge() {
+        return memAge;
+    }
+
+    public void setMemAge(int memAge) {
+        this.memAge = memAge;
+    }
+
+    public boolean isMemAdult() {
+        return memAdult;
+    }
+
+    public void setMemAdult(boolean memAdult) {
+        this.memAdult = memAdult;
+    }
+
+    public String getMemGender() {
+        return memGender;
+    }
+
+    public void setMemGender(String memGender) {
+        this.memGender = memGender;
+    }
+
+
+
+
+    public String getMemId() {
+
+        return memId;
+    }
+
+    public void setMemId(String memId) {
+
+        this.memId = memId;
+    }
+
+    public String getMemPw() {
+        return memPw;
+    }
+
+    public void setMemPw(String memPw) {
+
+        this.memPw = memPw;
+    }
+
+    public String getMemMail() {
+
+        return memMail;
+    }
+
+    public void setMemMail(String memMail) {
+
+        this.memMail = memMail;
+    }
+
+    public List<MemPhone> getMemPhones() {
+        return memPhones;
+    }
+
+    public void setMemPhones(List<MemPhone> memPhones) {
+        this.memPhones = memPhones;
+    }
 }

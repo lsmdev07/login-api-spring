@@ -1,13 +1,10 @@
 package com.bs.login_api_spring.member.dao;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
+import com.bs.login_api_spring.member.Member;
 import org.springframework.stereotype.Repository;
 
-import com.bs.login_api_spring.member.MemPhone;
-import com.bs.login_api_spring.member.Member;
+import java.util.HashMap;
+import java.util.Map;
 
 @Repository
 public class MemberDao implements IMemberDao {
@@ -19,87 +16,27 @@ public class MemberDao implements IMemberDao {
 	}
 	
 	@Override
-	public void memberInsert(String memId, String memPw, String memMail, String memPhone1, String memPhone2, String memPhone3) {
-		System.out.println("memberInsert()");
-		System.out.println("memId : " + memId);
-		System.out.println("memPw : " + memPw);
-		System.out.println("memMail : " + memMail);
-		System.out.println("memPhone : " + memPhone1 + " - " + memPhone2 + " - " + memPhone3);
-		
-		Member member = new Member();
-		member.setMemId(memId);
-		member.setMemPw(memPw);
-		member.setMemMail(memMail);
-
-		MemPhone memPhone = new MemPhone();
-		memPhone.setMemPhone1(memPhone1);
-		memPhone.setMemPhone2(memPhone2);
-		memPhone.setMemPhone3(memPhone3);
-		member.setMemPhone(memPhone);
-		
-		dbMap.put(memId, member);
-		
-		Set<String> keys = dbMap.keySet();
-		Iterator<String> iterator = keys.iterator();
-		
-		while (iterator.hasNext()) {
-			String key = iterator.next();
-			Member mem = dbMap.get(key);
-			System.out.print("memberId:" + mem.getMemId() + "\t");
-			System.out.print("|memberPw:" + mem.getMemPw() + "\t");
-			System.out.print("|memberMail:" + mem.getMemMail() + "\t");
-
-			System.out.print("|memberPhone:" + mem.getMemPhone().getMemPhone1() + " - " + 
-					   mem.getMemPhone().getMemPhone2() + " - " + 
-					   mem.getMemPhone().getMemPhone3() + "\n");
-		}
-		
-	}
-	
-	@Override
-	public void memberInsert(Member member) {
-		System.out.println("memberInsert()");
-		System.out.println("memId : " + member.getMemId());
-		System.out.println("memPw : " + member.getMemPw());
-		System.out.println("memMail : " + member.getMemMail());
-//		System.out.println("memPhone : " + member.getMemPhone1() + " - " + member.getMemPhone2() + " - " + member.getMemPhone3());
-		System.out.println("memPhone : " + member.getMemPhone().getMemPhone1() + " - " + member.getMemPhone().getMemPhone2() + " - " + member.getMemPhone().getMemPhone3());
-		
+	public Map<String, Member> memberInsert(Member member) {
 		dbMap.put(member.getMemId(), member);
-		
-		Set<String> keys = dbMap.keySet();
-		Iterator<String> iterator = keys.iterator();
-		
-		while (iterator.hasNext()) {
-			String key = iterator.next();
-			Member mem = dbMap.get(key);
-			System.out.print("memberId:" + mem.getMemId() + "\t");
-			System.out.print("|memberPw:" + mem.getMemPw() + "\t");
-			System.out.print("|memberMail:" + mem.getMemMail() + "\t");
-
-			System.out.print("|memberPhone:" + mem.getMemPhone().getMemPhone1() + " - " + 
-					   mem.getMemPhone().getMemPhone2() + " - " + 
-					   mem.getMemPhone().getMemPhone3() + "\n");
-		}
-		
+		return dbMap;
 	}
 
 	@Override
-	public Member memberSelect(String memId, String memPw) {
-		Member member = dbMap.get(memId);
-		if(member!=null)
-			System.out.println(member);
-		return member;
+	public Member memberSelect(Member member) {
+		Member mem = dbMap.get(member.getMemId());
+		return mem;
 	}
 
 	@Override
-	public void memberUpdate() {
-
+	public Member memberUpdate(Member member) {
+		dbMap.put(member.getMemId(), member);
+		return dbMap.get(member.getMemId());
 	}
 
 	@Override
-	public void memberDelete() {
-
+	public Map<String, Member> memberDelete(Member member) {
+		dbMap.remove(member.getMemId());
+		return dbMap;
 	}
 
 }

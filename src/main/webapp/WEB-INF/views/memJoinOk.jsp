@@ -9,10 +9,15 @@
 <h1> memJoinOk </h1>
 <div class="form-div">
     <div class="join-result">
-        ID : ${member.memId}<br/>
-        PW : ${member.memPw}<br/>
-        Mail : ${member.memMail} <br/>
-        Phone : ${member.memPhone.memPhone1} - ${member.memPhone.memPhone2} - ${member.memPhone.memPhone3}<br/>
+        ID : ${member.memId} <br />
+        PW : ${member.memPw} <br />
+        Mail : ${member.memMail} <br />
+        PHONE1 : ${member.memPhones[0].memPhone1} - ${member.memPhones[0].memPhone2} - ${member.memPhones[0].memPhone3} <br />
+        PHONE2 : ${member.memPhones[1].memPhone1} - ${member.memPhones[1].memPhone2} - ${member.memPhones[1].memPhone3} <br />
+        AGE : ${member.memAge} <br />
+        ADULT : ${member.memAdult} <br />
+        GENDER : ${member.memGender} <br />
+
     </div>
 </div>
 <a href="/getuser/memJoin.html"> &lt; Go Member Join &gt; </a>

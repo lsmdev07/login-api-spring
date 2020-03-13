@@ -1,23 +1,31 @@
 package com.bs.login_api_spring.member.controller;
 
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.bs.login_api_spring.member.Member;
 import com.bs.login_api_spring.member.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 @Controller
 @RequestMapping("/member")
 public class MemberController {
 
-    @Resource(description = "memService")
+    @Autowired
     MemberService service;
 
+    @ModelAttribute("serverTime")
+    public String getServerTime(Locale locale) {
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        return dateFormat.format(date);
+    }
     @RequestMapping(value = "/memJoin", method = RequestMethod.POST)
     public String memJoin(Member member) {
 
@@ -27,30 +35,25 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/memLogin", method = RequestMethod.POST)
-    public String memLogin(Model model,
-                           @RequestParam("memId") String memId,
-                           @RequestParam("memPw") String memPw) {
-
-        Member member = service.memberSearch(memId, memPw);
-        if (member != null) {
-            try {
-                System.out.println(member);
-                System.out.println(member.getMemId());
-                model.addAttribute("memId", member.getMemId());
-                model.addAttribute("memPw", member.getMemPw());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-			return "memLoginOk";
-
-
-		}
-        else {
-        	model.addAttribute("err","It is wrong command.");
-        	return "memLoginFail";
-		}
-
-
+    public String memLogin(Member member) {
+        if(service.memberSearch(member)==true)
+            return "memLoginOk";
+        else
+            return "memLoginFail";
     }
 
+    @RequestMapping(value="/memRemove",method = RequestMethod.POST)
+    public String memRemove(@ModelAttribute("mem") Member member){
+        service.memberRemove(member);
+        return "memRemoveOk";
+    }
+    @RequestMapping(value="/memModify",method = RequestMethod.POST)
+    public ModelAndView memModify(Member member) {
+        Member[] members = service.memberModify(member);
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("memberBef", members[0]);
+        mav.addObject("memAft",members[1]);
+        mav.setViewName("memModifyOk");
+        return mav;
+    }
 }

@@ -13,10 +13,18 @@
         ID : <input type="text" name="memId"><br/>
         PW : <input type="password" name="memPw"><br/>
         MAIL : <input type="text" name="memMail"><br/>
-        PHONE : <input type="text" name="memPhone.memPhone1" size="5"> -
-        <input type="text" name="memPhone.memPhone2" size="5"> -
-        <input type="text" name="memPhone.memPhone3" size="5"><br/>
+        PHONE1 : <input type="text" name="memPhones[0].memPhone1" size="5"> -
+                <input type="text" name="memPhones[0].memPhone2" size="5"> -
+                <input type="text" name="memPhones[0].memPhone3" size="5"><br />
+        PHONE2 : <input type="text" name="memPhones[1].memPhone1" size="5"> -
+                <input type="text" name="memPhones[1].memPhone2" size="5"> -
+                <input type="text" name="memPhones[1].memPhone3" size="5"><br />
         AGE : <input type="text" name="memAge" size="4"><br/>
+        ADULT : <input type="radio" name="memAdult" value="true">Yes,
+        <input type="radio" name="memAdult" value="false">No<br>
+        GENDER : <input type="radio" name="memGender" value="M">Man,
+                <input type="radio" name="memGender" value="W">Woman<br>
+
         <input type="submit" value="Join">
         <input type="reset" value="Cancel">
     </form>
