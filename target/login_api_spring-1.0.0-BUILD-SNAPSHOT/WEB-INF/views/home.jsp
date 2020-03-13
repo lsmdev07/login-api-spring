@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html;charset=euc-kr" language="java" %>
 <% request.setCharacterEncoding("euc-kr"); %>
 <% response.setContentType("text/html; charset=euc-kr"); %>
 <html>

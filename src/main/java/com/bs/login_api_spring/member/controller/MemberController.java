@@ -42,9 +42,6 @@ public class MemberController {
 
     @RequestMapping(value = "/memLogin", method = RequestMethod.POST)
     public String memLogin(Member member) {
-        System.out.println(member.getMemPw());
-        System.out.println(dao.memberSelect(member).getMemPw());
-        System.out.println(member.getMemPw() == dao.memberSelect(member).getMemPw());
         if ((service.memberSearch(member) == true)&&(member.getMemPw().equals(dao.memberSelect(member).getMemPw())))
             return "memLoginOk";
         else
@@ -69,7 +66,7 @@ public class MemberController {
     public ModelAndView memModify(Member member) {
         Member[] members = service.memberModify(member);
         ModelAndView mav = new ModelAndView();
-        mav.addObject("memberBef", members[0]);
+        mav.addObject("memBef", members[0]);
         mav.addObject("memAft", members[1]);
         mav.setViewName("memModifyOk");
         return mav;
