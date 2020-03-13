@@ -42,7 +42,10 @@ public class MemberController {
 
     @RequestMapping(value = "/memLogin", method = RequestMethod.POST)
     public String memLogin(Member member) {
-        if (service.memberSearch(member) == true)
+        System.out.println(member.getMemPw());
+        System.out.println(dao.memberSelect(member).getMemPw());
+        System.out.println(member.getMemPw() == dao.memberSelect(member).getMemPw());
+        if ((service.memberSearch(member) == true)&&(member.getMemPw().equals(dao.memberSelect(member).getMemPw())))
             return "memLoginOk";
         else
             return "memLoginFail";
@@ -50,7 +53,8 @@ public class MemberController {
 
     @RequestMapping(value = "/memRemove", method = RequestMethod.POST)
     public String memRemove(@ModelAttribute("mem") Member member) {
-        if (service.memberSearch(member) == true && (member.getMemPw() == dao.memberSelect(member).getMemPw())) {
+
+        if (service.memberSearch(member) == true && (member.getMemPw().equals(dao.memberSelect(member).getMemPw()))) {
             System.out.println(member.getMemPw());
             System.out.println(dao.memberSelect(member).getMemPw());
             service.memberRemove(member);
