@@ -8,7 +8,7 @@
     <title>login-api</title>
 </head>
 <body>
-<h1> memLoginFalse </h1>
+<h1> 로그인에 실패하였습니다. </h1>
 <h2>아이디 혹은 비밀번호가 옳지 않습니다.<br>
     다시 입력해주시기 바랍니다.<br><br></h2>
 

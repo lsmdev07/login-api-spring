@@ -9,7 +9,7 @@
 <body>
 <h1>탈퇴에 실패하였습니다.</h1>
 <h2>아이디 혹은 비밀번호를 잊어버리셨나요?<br>
-다시 시도해주시기 바랍니다.</h2>
+다시 시도해주시기 바랍니다.</h2><br>
 <a href="/getuser/index.html">Go Main</a>
 </body>
 </html>

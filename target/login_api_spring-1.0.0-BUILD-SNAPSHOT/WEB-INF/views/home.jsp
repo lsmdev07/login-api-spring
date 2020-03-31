@@ -10,13 +10,13 @@
 </head>
 <body>
 <h1>
-    로그인 서버에 오신 것을 환영합니다!
+    로그인 브라우저에 오신 것을 환영합니다!
 </h1>
 
 <P>
-    현재 서버의 시간은 ${serverTime}입니다.
+    현재 서버의 시간은 ${serverTime.substring(0,serverTime.length()-3)}입니다.
 </P>
-<a href="/getuser/index.html">move to login</a>
+<a href="/getuser/index.html">유저 정보 등록</a>
 </body>
 </html>
 <style>

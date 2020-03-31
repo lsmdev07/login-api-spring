@@ -23,7 +23,7 @@
 
     </div>
 </div>
-<a href="/getuser/memJoin.html"> &lt; Go Member Join &gt; </a>
+<a href="/getuser/login.html"> ·Î±×ÀÎ</a>
 </body>
 </html>
 <style>

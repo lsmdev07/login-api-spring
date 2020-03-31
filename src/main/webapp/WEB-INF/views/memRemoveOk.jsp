@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Å»ÅðµÇ¾ú½À´Ï´Ù.</h1>
-ID : ${mem.memId}
+ID : ${mem.memId}<br>
 <a href="/getuser/index.html">Go Main</a>
 </body>
 </html>
